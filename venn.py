@@ -20,12 +20,12 @@ Requires:
     cairo
 
 Option:
-    rpy2
+    rpy2 ( and the Vennerable R library)
 
 Released under:
 The MIT License
 
-Copyright (c) 2010, Florian Finkernagle
+Copyright (c) 2010, Florian Finkernagel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -103,7 +103,7 @@ class VennDiagram:
     def _venn_plot_sets(self, output_filename, width=8, height=8):
         """Plot a venn diagram into the pdf file output_filename.
         Takes a dictionary of sets and passes them straight on to R"""
-        raise TypeError("This is an error checking function")
+        raise TypeError("This function should no longer be used. use _venn_plot_weigths instead")
         sets = self.sets
         load_r()
         robjects.r('pdf')(output_filename, width=width, height=height)
@@ -115,7 +115,7 @@ class VennDiagram:
         """Plot a venn diagram into the pdf file output_filename.
         Takes a dictionary of sets and does the intersection calculation in python
         (which hopefully is a lot faster than passing 10k set elements to R)
-        (and anyhow, we have the smarter code)"""
+        """
         load_r()
         weights = [0]
         sets_by_power_of_two = {}
@@ -370,10 +370,3 @@ if __name__ == '__main__':
     ])
     vd.plot_proportional(options.output_filename, width)
     sys.exit(0)
-
-
-
-
-
-
-    #unittest.main()
