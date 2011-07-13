@@ -361,7 +361,7 @@ if __name__ == '__main__':
     in_A_and_not_B = int(args[1])
     in_not_A_and_B = int(args[2])
     set_A = range(0, in_A_and_B + in_A_and_not_B)
-    set_B = range(in_A_and_B, in_A_and_not_B + in_A_and_B + in_not_A_and_B)
+    set_B = range(in_A_and_not_B, in_A_and_not_B + in_A_and_B + in_not_A_and_B)
     set_name_a = args[3]
     set_name_b = args[4]
     vd = VennDiagram([
