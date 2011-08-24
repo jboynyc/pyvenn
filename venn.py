@@ -59,6 +59,10 @@ def load_r():
     global robjects
     import rpy2.robjects
     import rpy2.robjects.numpy2ri #so the numpy->r interface works
+    try:
+        rpy2.robjects.numpy2ri.activate()
+    except AttributeError:
+        pass
     robjects = rpy2.robjects
     if not _r_loaded:
         robjects.r('library(Vennerable)')
